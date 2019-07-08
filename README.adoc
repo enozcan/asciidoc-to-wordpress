@@ -1,20 +1,8 @@
 = Asciidoc to Wordpress blog publisher
 Container that converts an asciidoc document into a Wordpress blog (in draft mode)
 
-== Usage
-
-----
-docker run -it --rm -v $(pwd):/documents asciidoc-wp example.adoc
-----
-
-Or you can just run the convenience scripts:
-
-----
-./build
-./publish example.adoc
-----
-
 == Configuration
+
 There is a configuration file required with the following 3 configuration variables:
 
 * URL: Wordpress XML_RPC URL (don't forget to append /xmlrpc.php)
@@ -23,5 +11,23 @@ There is a configuration file required with the following 3 configuration variab
 
 The file needs to be located within the current directory and needs to be named *blogpost*
 
-There is an example file with sample contents. Just rename it to *blogpost* and edit appropriately.
+There is an example file with sample contents named *blogpost.example*. Just rename it to *blogpost* and edit appropriately.
+
+== Usage
+
+*Docker must be installed on your computer*
+
+Move your adoc file to be published on WordPress under adoc-files directory. 
+
+Under the repository's directory, run the command below once:
+
+----
+./build
+----
+
+Then for each publish, run the script with parameter which is the name of .adoc file without extension:
+
+----
+./adoc-to-wp.sh adoc_file_name_w/o_ext
+----
 

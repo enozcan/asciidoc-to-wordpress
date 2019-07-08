@@ -15,9 +15,14 @@ There is an example file with sample contents named *blogpost.example*. Just ren
 
 == Usage
 
-*Docker must be installed on your computer*
+*Docker and Asciidoctor must be installed on your computer*
 
 Move your adoc file to be published on WordPress under adoc-files directory. 
+
+Create your adoc file's html version:
+----
+asciidoctor -a allow-uri-read adoc-files/file_to_be_published.adoc
+----
 
 Under the repository's directory, run the command below once:
 
@@ -25,9 +30,9 @@ Under the repository's directory, run the command below once:
 ./build
 ----
 
-Then for each publish, run the script with parameter which is the name of .adoc file without extension:
+Then for each publish, run the script with parameter which is the name of .adoc file with .html extension:
 
 ----
-./adoc-to-wp.sh adoc_file_name_w/o_ext
+./publish adoc-files/file_to_be_published.html
 ----
 
